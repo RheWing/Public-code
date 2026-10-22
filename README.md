@@ -1,3 +1,1 @@
-Code tham khảo 
-Không share cho ai khác ngoài thành viên đtqg Sơn La
-"Cấm" Ctrl C - Ctrl V
+Code nội bộ giáo phái VOI 27, "cấm" ctrl c, v;
