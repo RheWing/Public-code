@@ -83,7 +83,7 @@ int main(){
             cout << res << '\n';
         }
         else{
-            cout << 0 << '\n';
+            cout << 0 << '\n';  
         }
     }
     return 0;
