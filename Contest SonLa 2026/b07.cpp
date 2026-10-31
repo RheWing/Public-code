@@ -9,26 +9,37 @@ using namespace std;
 #define task ""
 
 const int MAXN = 1005;
-const int INF = 1e9 + 7;
-
 int n, m;
-int mn[MAXN];
+vector<pair<ll, int>> a;
+int cnt[MAXN];
 
 int main(){
     FAST_IO
 
     cin >> n >> m;
 
-    fill(mn + 1, mn + n + 1, INF);
     for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            int x; cin >> x;
-            mn[i] = min(mn[i], x);
+        for(int j = 1;  j <= m; j++){
+            int val; cin >> val;
+            a.push_back({val, i});
+        }
+    }    
+
+    sort(ALL(a));
+
+    int cover = 0;
+    ll res = LLONG_MAX;
+    int l = 0;
+
+    for(int r = 0; r < a.size(); r++){
+        if(cnt[a[r].second]++ == 0) cover++;
+        while(cover == n){
+            res = min(res, a[r].first - a[l].first);
+            if(--cnt[a[l].second] == 0) cover--;
+            l++;
         }
     }
 
-    sort(mn + 1, mn + n + 1);
-
-    cout << mn[n] - mn[1] << '\n';
+    cout << res;
     return 0;
 }
